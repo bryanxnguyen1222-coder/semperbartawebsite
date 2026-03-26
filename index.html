@@ -4,328 +4,87 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Semper Barta Consultancy</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f6f4ef;
-      color: #111;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .services-section {
-      display: flex;
-      min-height: 100vh;
-      width: 100%;
-      background: #f6f4ef;
-    }
-
-    .hero-side {
-      width: 38%;
-      background: #000;
-      overflow: hidden;
-    }
-
-    .hero-side img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-    }
-
-    .content-side {
-      width: 62%;
-      padding: 65px 70px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .eyebrow {
-      text-align: center;
-      color: #c8a33a;
-      font-size: 18px;
-      font-weight: 500;
-      margin-bottom: 18px;
-    }
-
-    .headline {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 68px;
-      line-height: 1.06;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 26px;
-      letter-spacing: -1px;
-    }
-
-    .headline .gold {
-      color: #c8a33a;
-    }
-
-    .intro {
-      max-width: 880px;
-      margin: 0 auto 20px auto;
-      text-align: center;
-      color: #555;
-      font-size: 17px;
-      line-height: 1.75;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(280px, 1fr));
-      column-gap: 40px;
-      row-gap: 28px;
-      margin-top: 42px;
-      margin-bottom: 38px;
-    }
-
-    .service-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-    }
-
-    .service-icon {
-      width: 48px;
-      height: 48px;
-      min-width: 48px;
-      border: 2px solid #c8a33a;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #c8a33a;
-      font-size: 20px;
-      font-weight: 700;
-      line-height: 1;
-      margin-top: 2px;
-    }
-
-    .service-text h3 {
-      font-size: 18px;
-      font-weight: 700;
-      color: #111;
-      margin-bottom: 8px;
-    }
-
-    .service-text p {
-      font-size: 15px;
-      color: #5a5a5a;
-      line-height: 1.65;
-    }
-
-    .button-wrap {
-      display: flex;
-      justify-content: center;
-    }
-
-    .cta-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 290px;
-      padding: 16px 34px;
-      border-radius: 10px;
-      font-size: 18px;
-      font-weight: 700;
-      color: #111;
-      background: linear-gradient(90deg, #efe1af 0%, #c8a33a 100%);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-
-    .cta-button:hover {
-      transform: translateY(-2px);
-      opacity: 0.96;
-    }
-
-    @media (max-width: 1200px) {
-      .headline {
-        font-size: 56px;
-      }
-
-      .content-side {
-        padding: 55px 40px;
-      }
-    }
-
-    @media (max-width: 992px) {
-      .services-section {
-        flex-direction: column;
-      }
-
-      .hero-side,
-      .content-side {
-        width: 100%;
-      }
-
-      .hero-side {
-        height: 760px;
-      }
-
-      .headline {
-        font-size: 48px;
-      }
-
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .hero-side {
-        height: 520px;
-      }
-
-      .content-side {
-        padding: 40px 22px;
-      }
-
-      .eyebrow {
-        font-size: 16px;
-      }
-
-      .headline {
-        font-size: 36px;
-        line-height: 1.12;
-      }
-
-      .intro {
-        font-size: 15px;
-      }
-
-      .service-text h3 {
-        font-size: 17px;
-      }
-
-      .service-text p {
-        font-size: 14px;
-      }
-
-      .cta-button {
-        width: 100%;
-        min-width: unset;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <section class="services-section">
-    <div class="hero-side">
-      <img src="matt-hero.png" alt="Semper Barta Consultancy Hero Image" />
+    <div class="hero-image">
+      <img src="images/matt-hero.png" alt="Semper Barta Consultancy" />
     </div>
 
-    <div class="content-side">
+    <div class="services-content">
       <p class="eyebrow">Our Services</p>
 
-      <h1 class="headline">
-        Strategic <span class="gold">eCommerce Growth</span>,<br />
+      <h1>
+        Strategic <span>eCommerce Growth</span>,<br />
         Built to Perform
       </h1>
 
       <p class="intro">
         At Semper Barta Consultancy, we help businesses grow in the digital world through
-        hands-on execution and proven strategy. Whether you are looking to increase revenue,
-        improve conversion, strengthen retention, or build a stronger brand presence, we
-        create solutions tailored to your goals.
+        hands-on execution and proven strategy. Whether you're looking to increase revenue,
+        scale operations, or strengthen your brand presence, we deliver solutions tailored
+        to your goals.
       </p>
 
       <p class="intro">
-        We combine strategy, analytics, and real-world marketing expertise to build systems
-        that drive measurable results. Not just more traffic, but smarter growth that lasts.
+        We combine strategy, analytics, and real-world marketing expertise to create
+        systems that drive measurable results, not just traffic, but growth that lasts.
       </p>
 
       <div class="services-grid">
         <div class="service-item">
-          <div class="service-icon">✦</div>
-          <div class="service-text">
+          <div class="icon">✦</div>
+          <div>
             <h3>eCommerce Strategy</h3>
-            <p>
-              Clear, data-driven plans to scale your business, improve operations,
-              and unlock new growth opportunities.
-            </p>
+            <p>Clear, data-driven plans to scale your business and unlock new growth opportunities.</p>
           </div>
         </div>
 
         <div class="service-item">
-          <div class="service-icon">✦</div>
-          <div class="service-text">
+          <div class="icon">✦</div>
+          <div>
             <h3>Conversion Optimization (CRO)</h3>
-            <p>
-              Turn more visitors into customers with optimized funnels, landing pages,
-              site flow, and user experience improvements.
-            </p>
+            <p>Turn more visitors into customers with optimized funnels, landing pages, and user experience.</p>
           </div>
         </div>
 
         <div class="service-item">
-          <div class="service-icon">✦</div>
-          <div class="service-text">
+          <div class="icon">✦</div>
+          <div>
             <h3>Paid Advertising</h3>
-            <p>
-              High-performance campaigns across Meta, Google, and TikTok focused on
-              efficient acquisition and profitable scale.
-            </p>
+            <p>High-performance campaigns across Meta, Google, and TikTok focused on profitable acquisition.</p>
           </div>
         </div>
 
         <div class="service-item">
-          <div class="service-icon">✦</div>
-          <div class="service-text">
-            <h3>Email &amp; SMS Marketing</h3>
-            <p>
-              Retention systems that increase repeat purchases, strengthen customer
-              relationships, and raise lifetime value.
-            </p>
+          <div class="icon">✦</div>
+          <div>
+            <h3>Email & SMS Marketing</h3>
+            <p>Retention systems that increase revenue value and keep your customers coming back.</p>
           </div>
         </div>
 
         <div class="service-item">
-          <div class="service-icon">✦</div>
-          <div class="service-text">
-            <h3>Subscription &amp; Retention</h3>
-            <p>
-              Smart recurring revenue strategies built to reduce churn, improve
-              retention, and keep customers coming back.
-            </p>
+          <div class="icon">✦</div>
+          <div>
+            <h3>Subscription & Retention</h3>
+            <p>Retention systems and lifetime value strategies that reduce churn and build loyalty.</p>
           </div>
         </div>
 
         <div class="service-item">
-          <div class="service-icon">✦</div>
-          <div class="service-text">
-            <h3>Analytics &amp; Insights</h3>
-            <p>
-              Full visibility into performance with actionable reporting and insights
-              to guide better business decisions.
-            </p>
+          <div class="icon">✦</div>
+          <div>
+            <h3>Analytics & Insights</h3>
+            <p>Full visibility into performance with actionable data to guide smarter decisions.</p>
           </div>
         </div>
       </div>
 
-      <div class="button-wrap">
-        <a href="#contact" class="cta-button">Work With Us</a>
-      </div>
+      <a href="#contact" class="cta-button">Work With Us</a>
     </div>
   </section>
 </body>
 </html>
-
-
 
