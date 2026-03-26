@@ -4,11 +4,41 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Semper Barta Consultancy</title>
+  <meta
+    name="description"
+    content="Semper Barta Consultancy helps brands grow through eCommerce strategy, conversion optimization, retention, analytics, and digital transformation."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
   <style>
+    :root {
+      --bg: #050505;
+      --bg-soft: #0d0d0d;
+      --cream: #efede6;
+      --cream-2: #f7f5f0;
+      --text: #f8f8f8;
+      --text-dark: #111111;
+      --muted: #d2d2d2;
+      --muted-dark: #5c5850;
+      --gold: #d7b247;
+      --gold-soft: #ead78c;
+      --line: rgba(255, 255, 255, 0.08);
+      --line-dark: rgba(17, 17, 17, 0.08);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+      --radius: 28px;
+      --max: 1260px;
+    }
+
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     html {
@@ -16,314 +46,1074 @@
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f6f4ef;
-      color: #111;
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
     }
 
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
     }
 
-    .services-section {
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .gold {
+      color: var(--gold);
+    }
+
+    .section-tag {
+      display: inline-block;
+      margin-bottom: 14px;
+      color: var(--gold);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 58px;
+      padding: 0 30px;
+      border-radius: 16px;
+      border: 1px solid transparent;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+      color: #111;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border-color: rgba(255, 255, 255, 0.16);
+      color: #fff;
+    }
+
+    .btn-secondary-dark {
+      background: transparent;
+      border-color: rgba(17, 17, 17, 0.16);
+      color: #111;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(5, 5, 5, 0.82);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .nav {
+      min-height: 84px;
       display: flex;
-      min-height: 100vh;
-      width: 100%;
-      background: #f6f4ef;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
     }
 
-    .hero-side {
-      width: 38%;
-      background: #000;
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .nav-logo {
+      height: 58px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      color: #ececec;
+      font-size: 0.96rem;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-soft);
+    }
+
+    .menu-btn {
+      display: none;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: transparent;
+      color: white;
+      cursor: pointer;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 72% 74%, rgba(215, 178, 71, 0.16), transparent 24%),
+        radial-gradient(circle at 76% 90%, rgba(215, 178, 71, 0.10), transparent 22%),
+        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0) 30%),
+        #040404;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 34px;
+      align-items: end;
+      min-height: calc(100vh - 84px);
+      padding-top: 24px;
+    }
+
+    .hero-image-wrap {
+      min-height: 760px;
+      display: flex;
+      align-items: end;
       overflow: hidden;
     }
 
-    .hero-side img {
-      width: 100%;
+    .hero-image {
+      width: auto;
+      max-width: none;
       height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
+      min-height: 830px;
+      object-fit: contain;
+      object-position: bottom left;
+      transform: translateX(-30px) scale(1.04);
+      filter: drop-shadow(0 32px 54px rgba(0, 0, 0, 0.34));
     }
 
-    .content-side {
-      width: 62%;
-      padding: 65px 70px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    .hero-copy {
+      padding: 28px 0 90px;
     }
 
-    .eyebrow {
-      text-align: center;
-      color: #c8a33a;
-      font-size: 18px;
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(4rem, 7vw, 7.1rem);
+      line-height: 0.9;
+      letter-spacing: -0.05em;
+      margin-bottom: 28px;
+    }
+
+    .hero p {
+      max-width: 760px;
+      font-size: clamp(1.2rem, 2vw, 1.75rem);
+      color: #dddddd;
+      line-height: 1.6;
       font-weight: 500;
-      margin-bottom: 18px;
+      margin-bottom: 34px;
     }
 
-    .headline {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 68px;
-      line-height: 1.06;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 26px;
-      letter-spacing: -1px;
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
     }
 
-    .headline .gold {
-      color: #c8a33a;
+    .stats {
+      margin-top: -28px;
+      position: relative;
+      z-index: 5;
+      padding-bottom: 14px;
     }
 
-    .intro {
-      max-width: 880px;
-      margin: 0 auto 20px auto;
-      text-align: center;
-      color: #555;
-      font-size: 17px;
-      line-height: 1.75;
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 24px;
+      backdrop-filter: blur(12px);
+    }
+
+    .stat-card h3 {
+      font-size: 1.85rem;
+      color: var(--gold-soft);
+      margin-bottom: 8px;
+      font-weight: 800;
+    }
+
+    .stat-card p {
+      color: #cfcfcf;
+      font-size: 0.98rem;
+    }
+
+    .services {
+      background: var(--cream);
+      color: var(--text-dark);
+      padding: 110px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .services::before {
+      content: "";
+      position: absolute;
+      inset: auto -180px -140px auto;
+      width: 460px;
+      height: 460px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(215, 178, 71, 0.16), transparent 70%);
+      pointer-events: none;
     }
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(280px, 1fr));
-      column-gap: 40px;
-      row-gap: 28px;
-      margin-top: 42px;
-      margin-bottom: 38px;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 36px;
+      align-items: stretch;
     }
 
-    .service-item {
+    .services-photo {
+      min-height: 900px;
+      border-radius: 32px;
+      overflow: hidden;
+      background: #e8e3d8;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.08);
+    }
+
+    .services-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .services-content {
+      padding-top: 10px;
+    }
+
+    .services h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.8rem, 5vw, 5.4rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      margin-bottom: 18px;
+    }
+
+    .services-intro,
+    .services-subtext {
+      max-width: 760px;
+      color: var(--muted-dark);
+      font-size: 1.14rem;
+      margin-bottom: 18px;
+    }
+
+    .service-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .service-card {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line-dark);
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+    }
+
+    .service-top {
       display: flex;
       align-items: flex-start;
-      gap: 16px;
-    }
-
-    .service-icon {
-      width: 48px;
-      height: 48px;
-      min-width: 48px;
-      border: 2px solid #c8a33a;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #c8a33a;
-      font-size: 20px;
-      font-weight: 700;
-      line-height: 1;
-      margin-top: 2px;
-    }
-
-    .service-text h3 {
-      font-size: 18px;
-      font-weight: 700;
-      color: #111;
+      gap: 12px;
       margin-bottom: 8px;
     }
 
-    .service-text p {
-      font-size: 15px;
-      color: #5a5a5a;
-      line-height: 1.65;
+    .service-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(215, 178, 71, 0.14);
+      color: #b88f1e;
+      flex: 0 0 auto;
     }
 
-    .button-wrap {
+    .service-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+    }
+
+    .service-card h3 {
+      font-size: 1.05rem;
+      line-height: 1.1;
+      margin-bottom: 2px;
+    }
+
+    .service-card p {
+      color: var(--muted-dark);
+      font-size: 0.96rem;
+      line-height: 1.55;
+    }
+
+    .services-actions {
       display: flex;
-      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 22px;
     }
 
-    .cta-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 290px;
-      padding: 16px 34px;
-      border-radius: 10px;
-      font-size: 18px;
+    .about,
+    .experience,
+    .contact {
+      padding: 110px 0;
+    }
+
+    .about {
+      background: linear-gradient(180deg, #080808, #0d0d0d);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .about-panel,
+    .about-quote,
+    .experience-card,
+    .contact-card {
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-panel,
+    .experience-card,
+    .contact-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .about-quote {
+      background: linear-gradient(135deg, rgba(215,178,71,0.16), rgba(255,255,255,0.03));
+      border: 1px solid rgba(215,178,71,0.18);
+    }
+
+    .about h2,
+    .experience h2,
+    .contact h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.4rem, 4vw, 4rem);
+      line-height: 1.03;
+      letter-spacing: -0.04em;
+      margin-bottom: 18px;
+    }
+
+    .about-panel p,
+    .contact-copy p {
+      color: #d7d7d7;
+      font-size: 1.05rem;
+      margin-bottom: 16px;
+    }
+
+    .about-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .about-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: #efefef;
+    }
+
+    .about-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 8px;
+      flex: 0 0 auto;
+    }
+
+    .about-quote p {
+      color: #f7f2e6;
+      font-size: 1.3rem;
+      line-height: 1.5;
+      margin-bottom: 18px;
+    }
+
+    .about-quote span {
+      color: var(--gold-soft);
       font-weight: 700;
-      color: #111;
-      background: linear-gradient(90deg, #efe1af 0%, #c8a33a 100%);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-      transition: transform 0.2s ease, opacity 0.2s ease;
+      letter-spacing: 0.03em;
     }
 
-    .cta-button:hover {
-      transform: translateY(-2px);
-      opacity: 0.96;
+    .section-head {
+      max-width: 860px;
+      margin-bottom: 34px;
     }
 
-    @media (max-width: 1200px) {
-      .headline {
-        font-size: 56px;
-      }
-
-      .content-side {
-        padding: 55px 40px;
-      }
+    .section-head p {
+      color: #d0d0d0;
+      font-size: 1.08rem;
     }
 
-    @media (max-width: 992px) {
-      .services-section {
-        flex-direction: column;
-      }
+    .experience {
+      background: #060606;
+    }
 
-      .hero-side,
-      .content-side {
-        width: 100%;
-      }
+    .experience-grid {
+      display: grid;
+      gap: 18px;
+    }
 
-      .hero-side {
-        height: 760px;
-      }
+    .experience-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 6px;
+    }
 
-      .headline {
-        font-size: 48px;
-      }
+    .experience-meta {
+      color: var(--gold-soft);
+      font-weight: 700;
+      margin-bottom: 12px;
+      font-size: 0.98rem;
+    }
 
-      .services-grid {
+    .experience-card p {
+      color: #d7d7d7;
+      margin-bottom: 14px;
+    }
+
+    .experience-card ul {
+      padding-left: 18px;
+      color: #ececec;
+    }
+
+    .experience-card li {
+      margin-bottom: 8px;
+    }
+
+    .contact {
+      background: radial-gradient(circle at top center, rgba(215,178,71,0.08), transparent 30%), #050505;
+    }
+
+    .contact-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .contact-points {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+      color: #efefef;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+      color: white;
+      border-radius: 16px;
+      padding: 16px 18px;
+      font: inherit;
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: rgba(215, 178, 71, 0.5);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    footer {
+      padding: 28px 0 42px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      background: #040404;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      color: #bfbfbf;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 1120px) {
+      .hero-grid,
+      .services-grid,
+      .about-grid,
+      .contact-card {
         grid-template-columns: 1fr;
       }
+
+      .hero-grid {
+        min-height: auto;
+        padding-top: 20px;
+      }
+
+      .hero-image-wrap {
+        min-height: auto;
+        justify-content: center;
+      }
+
+      .hero-image {
+        min-height: unset;
+        max-height: 760px;
+        transform: none;
+      }
+
+      .hero-copy {
+        padding-top: 0;
+      }
+
+      .services-photo {
+        min-height: 700px;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
-    @media (max-width: 640px) {
-      .hero-side {
-        height: 520px;
+    @media (max-width: 860px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        right: 20px;
+        top: 78px;
+        width: min(320px, calc(100% - 40px));
+        background: rgba(10, 10, 10, 0.98);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 18px;
+        padding: 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        box-shadow: var(--shadow);
       }
 
-      .content-side {
-        padding: 40px 22px;
+      .nav-links.open {
+        display: flex;
       }
 
-      .eyebrow {
-        font-size: 16px;
+      .menu-btn {
+        display: inline-grid;
+        place-items: center;
       }
 
-      .headline {
-        font-size: 36px;
-        line-height: 1.12;
+      .service-list,
+      .field-row,
+      .stats-grid {
+        grid-template-columns: 1fr;
       }
 
-      .intro {
-        font-size: 15px;
+      .services,
+      .about,
+      .experience,
+      .contact {
+        padding: 80px 0;
       }
 
-      .service-text h3 {
-        font-size: 17px;
+      .hero h1,
+      .services h2,
+      .about h2,
+      .experience h2,
+      .contact h2 {
+        letter-spacing: -0.02em;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .container {
+        width: min(var(--max), calc(100% - 24px));
       }
 
-      .service-text p {
-        font-size: 14px;
+      .hero-actions,
+      .services-actions {
+        flex-direction: column;
+        align-items: stretch;
       }
 
-      .cta-button {
+      .btn {
         width: 100%;
-        min-width: unset;
+      }
+
+      .services-photo {
+        min-height: 480px;
+      }
+
+      .about-panel,
+      .about-quote,
+      .experience-card,
+      .contact-card,
+      .service-card,
+      .stat-card {
+        padding: 22px;
+      }
+
+      .footer-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-logo {
+        height: 48px;
       }
     }
   </style>
 </head>
 <body>
-  <section class="services-section">
-    <div class="hero-side">
-      <img src="matt-hero.png" alt="Semper Barta Consultancy Hero Image" />
+  <header>
+    <div class="container nav">
+      <div class="nav-left">
+        <img src="semper logo.png" alt="Semper Barta Consultancy logo" class="nav-logo" />
+      </div>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 6h18"></path>
+          <path d="M3 12h18"></path>
+          <path d="M3 18h18"></path>
+        </svg>
+      </button>
     </div>
+  </header>
 
-    <div class="content-side">
-      <p class="eyebrow">Our Services</p>
-
-      <h1 class="headline">
-        Strategic <span class="gold">eCommerce Growth</span>,<br />
-        Built to Perform
-      </h1>
-
-      <p class="intro">
-        At Semper Barta Consultancy, we help businesses grow in the digital world through
-        hands-on execution and proven strategy. Whether you are looking to increase revenue,
-        improve conversion, strengthen retention, or build a stronger brand presence, we
-        create solutions tailored to your goals.
-      </p>
-
-      <p class="intro">
-        We combine strategy, analytics, and real-world marketing expertise to build systems
-        that drive measurable results. Not just more traffic, but smarter growth that lasts.
-      </p>
-
-      <div class="services-grid">
-        <div class="service-item">
-          <div class="service-icon">✦</div>
-          <div class="service-text">
-            <h3>eCommerce Strategy</h3>
-            <p>
-              Clear, data-driven plans to scale your business, improve operations,
-              and unlock new growth opportunities.
-            </p>
-          </div>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-image-wrap">
+          <img src="matt hero image.png" alt="Consultant portrait" class="hero-image" />
         </div>
 
-        <div class="service-item">
-          <div class="service-icon">✦</div>
-          <div class="service-text">
-            <h3>Conversion Optimization (CRO)</h3>
-            <p>
-              Turn more visitors into customers with optimized funnels, landing pages,
-              site flow, and user experience improvements.
-            </p>
-          </div>
-        </div>
+        <div class="hero-copy">
+          <h1>
+            Proven <span class="gold">eCommerce</span><br>
+            Consulting
+          </h1>
 
-        <div class="service-item">
-          <div class="service-icon">✦</div>
-          <div class="service-text">
-            <h3>Paid Advertising</h3>
-            <p>
-              High-performance campaigns across Meta, Google, and TikTok focused on
-              efficient acquisition and profitable scale.
-            </p>
-          </div>
-        </div>
+          <p>
+            Take your online business to the next level with expert strategy,
+            conversion insights, retention planning, and growth systems built to perform.
+          </p>
 
-        <div class="service-item">
-          <div class="service-icon">✦</div>
-          <div class="service-text">
-            <h3>Email &amp; SMS Marketing</h3>
-            <p>
-              Retention systems that increase repeat purchases, strengthen customer
-              relationships, and raise lifetime value.
-            </p>
-          </div>
-        </div>
-
-        <div class="service-item">
-          <div class="service-icon">✦</div>
-          <div class="service-text">
-            <h3>Subscription &amp; Retention</h3>
-            <p>
-              Smart recurring revenue strategies built to reduce churn, improve
-              retention, and keep customers coming back.
-            </p>
-          </div>
-        </div>
-
-        <div class="service-item">
-          <div class="service-icon">✦</div>
-          <div class="service-text">
-            <h3>Analytics &amp; Insights</h3>
-            <p>
-              Full visibility into performance with actionable reporting and insights
-              to guide better business decisions.
-            </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Book Consultation</a>
+            <a href="#services" class="btn btn-secondary">Explore Services</a>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="button-wrap">
-        <a href="#contact" class="cta-button">Work With Us</a>
+    <section class="stats">
+      <div class="container stats-grid">
+        <div class="stat-card">
+          <h3>Growth</h3>
+          <p>Practical strategies focused on revenue, retention, and customer lifetime value.</p>
+        </div>
+        <div class="stat-card">
+          <h3>CRO</h3>
+          <p>Sharper landing pages, stronger offers, and more efficient customer journeys.</p>
+        </div>
+        <div class="stat-card">
+          <h3>Retention</h3>
+          <p>Email, SMS, and subscription systems that keep customers engaged longer.</p>
+        </div>
+        <div class="stat-card">
+          <h3>Clarity</h3>
+          <p>Analytics and reporting that turn data into smart, confident decisions.</p>
+        </div>
       </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container services-grid">
+        <div class="services-photo">
+          <img src="blue suit.png" alt="Consultant portrait in blue suit" />
+        </div>
+
+        <div class="services-content">
+          <span class="section-tag">Our Services</span>
+
+          <h2>
+            Strategic <span class="gold">eCommerce<br>Growth</span>, Built to<br>Perform
+          </h2>
+
+          <p class="services-intro">
+            At Semper Barta Consultancy, we help businesses grow in the digital
+            world through hands-on strategy, smart execution, and performance-focused marketing.
+          </p>
+
+          <p class="services-subtext">
+            Whether your goal is stronger conversion, better customer retention,
+            or scalable acquisition, we build tailored systems that create measurable business growth.
+          </p>
+
+          <div class="service-list">
+            <article class="service-card">
+              <div class="service-top">
+                <div class="service-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                    <path d="M5 19L19 5"></path>
+                    <path d="M9 5h10v10"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3>eCommerce Strategy</h3>
+                </div>
+              </div>
+              <p>Clear, data-driven planning to improve performance, scale efficiently, and unlock new opportunities across your store.</p>
+            </article>
+
+            <article class="service-card">
+              <div class="service-top">
+                <div class="service-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                    <rect x="4" y="6" width="16" height="12" rx="2"></rect>
+                    <path d="M8 12h8"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3>Conversion Optimization</h3>
+                </div>
+              </div>
+              <p>Turn more visitors into customers with refined funnels, stronger landing pages, better offers, and smoother buying experiences.</p>
+            </article>
+
+            <article class="service-card">
+              <div class="service-top">
+                <div class="service-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                    <path d="M8 17V10"></path>
+                    <path d="M12 17V6"></path>
+                    <path d="M16 17v-4"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3>Paid Advertising</h3>
+                </div>
+              </div>
+              <p>Campaign strategy across Meta, Google, and other key channels with a focus on efficient acquisition and profitable growth.</p>
+            </article>
+
+            <article class="service-card">
+              <div class="service-top">
+                <div class="service-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                    <path d="M4 7h16v10H4z"></path>
+                    <path d="M4 8l8 6 8-6"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3>Email &amp; SMS Marketing</h3>
+                </div>
+              </div>
+              <p>Lifecycle flows, campaigns, and retention systems designed to increase repeat purchases and build stronger customer relationships.</p>
+            </article>
+
+            <article class="service-card">
+              <div class="service-top">
+                <div class="service-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                    <path d="M12 21c4.4 0 8-3.6 8-8 0-7-8-11-8-11S4 6 4 13c0 4.4 3.6 8 8 8z"></path>
+                    <path d="M9 13c1.1 1.1 2.9 1.1 4 0"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3>Subscription &amp; Retention</h3>
+                </div>
+              </div>
+              <p>Programs that strengthen customer lifetime value, reduce churn, and create more predictable recurring revenue.</p>
+            </article>
+
+            <article class="service-card">
+              <div class="service-top">
+                <div class="service-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                    <path d="M4 19h16"></path>
+                    <path d="M8 16V9"></path>
+                    <path d="M12 16V5"></path>
+                    <path d="M16 16v-3"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3>Analytics &amp; Insights</h3>
+                </div>
+              </div>
+              <p>Actionable reporting and performance analysis that help you understand what is working and where to improve next.</p>
+            </article>
+          </div>
+
+          <div class="services-actions">
+            <a href="#contact" class="btn btn-primary">Work With Us</a>
+            <a href="#about" class="btn btn-secondary-dark">Why Choose Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="about-panel">
+          <span class="section-tag">About</span>
+
+          <h2>
+            Experienced <span class="gold">eCommerce leader</span><br>
+            built for growth
+          </h2>
+
+          <p>
+            Experienced marketing leader with 10+ years across eCommerce, SEO,
+            and B2B retail strategy, helping both consumer and enterprise brands
+            grow through stronger digital execution, smarter systems, and measurable performance.
+          </p>
+
+          <p>
+            My background includes optimizing global digital ecosystems across
+            Salesforce Commerce Cloud, Shopify, and integrated marketing technologies,
+            with hands-on experience in P&amp;L ownership, personalization,
+            automation, analytics, and cross-functional execution.
+          </p>
+
+          <p>
+            I blend analytical precision with creative problem-solving to turn business goals into scalable,
+            tech-enabled solutions. From AI-enhanced workflows and customer journey optimization
+            to multi-platform commerce integrations, I focus on work that improves growth, efficiency, and ROI.
+          </p>
+
+          <div class="about-list">
+            <div class="about-item">
+              <span class="about-dot"></span>
+              <div>10+ years in eCommerce, SEO, merchandising, and retail strategy</div>
+            </div>
+            <div class="about-item">
+              <span class="about-dot"></span>
+              <div>Platform leadership across Shopify, Salesforce Commerce Cloud, Klaviyo, and marketing tech</div>
+            </div>
+            <div class="about-item">
+              <span class="about-dot"></span>
+              <div>Strong analytics, Google Analytics, Jira, Asana, and data-driven decision making</div>
+            </div>
+            <div class="about-item">
+              <span class="about-dot"></span>
+              <div>Hands-on in both system management and team leadership across marketing, IT, and operations</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-quote">
+          <p>
+            “I help brands bridge strategy, marketing, technology, and operations
+            so growth is not just faster, but more scalable, efficient, and profitable.”
+          </p>
+          <span>Semper Barta Consultancy</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="experience" id="experience">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">Experience</span>
+          <h2>
+            Leadership experience across <span class="gold">consulting, eCommerce, and operations</span>
+          </h2>
+          <p>
+            A track record of building growth systems, improving retention,
+            scaling digital ecosystems, and leading cross-functional initiatives
+            across marketing, technology, and operations.
+          </p>
+        </div>
+
+        <div class="experience-grid">
+          <article class="experience-card">
+            <h3>Founder &amp; Principal Consultant</h3>
+            <div class="experience-meta">Semper Barta Consultancy · Nov 2025 - Present</div>
+            <p>
+              Leading consulting engagements focused on digital marketing strategy,
+              paid media, SEO, email marketing, analytics, brand positioning,
+              website optimization, lead generation, and marketing training.
+            </p>
+            <ul>
+              <li>Digital marketing strategy and planning</li>
+              <li>Paid advertising across Google Ads and social media</li>
+              <li>SEO, email marketing, and landing page optimization</li>
+              <li>Lead generation, reporting, consultation, and training</li>
+            </ul>
+          </article>
+
+          <article class="experience-card">
+            <h3>Head of E-Commerce Operations</h3>
+            <div class="experience-meta">Darwin's Natural Pet Products · Jul 2023 - Oct 2025</div>
+            <p>
+              Owned the digital ecosystem, site operations, system integrations,
+              and marketing technology roadmap while leading scalable growth initiatives
+              and major platform transformation.
+            </p>
+            <ul>
+              <li>Led platform migration from Salesforce to Shopify</li>
+              <li>Increased customer return rate from 28% to 34%</li>
+              <li>Raised AOV by 11% in six months</li>
+              <li>Built AI-driven workflows that improved efficiency and reduced manual output by 25%</li>
+            </ul>
+          </article>
+
+          <article class="experience-card">
+            <h3>E-Commerce Merchandise Manager</h3>
+            <div class="experience-meta">Jacuzzi Group Worldwide · Jun 2016 - Jul 2023</div>
+            <p>
+              Managed digital merchandising, optimization, product data systems,
+              personalization, testing, and reporting across eight global regions
+              and multiple branded sites.
+            </p>
+            <ul>
+              <li>Launched and governed the company’s PIM system and Amazon Seller Central integration</li>
+              <li>Implemented personalization that generated 26% of total online opportunities</li>
+              <li>Improved geo-targeted traffic by 16%</li>
+              <li>Drove a 783% increase in user-generated content through BazaarVoice optimization</li>
+            </ul>
+          </article>
+
+          <article class="experience-card">
+            <h3>Client Relationship Manager</h3>
+            <div class="experience-meta">Eastman Technologies · Sep 2011 - Jun 2016</div>
+            <p>
+              Managed enterprise telecommunications clients, developed proposals and SLAs,
+              led large-scale deployments, and strengthened long-term client retention
+              through solution-based consulting.
+            </p>
+          </article>
+
+          <article class="experience-card">
+            <h3>CBRN Defense Specialist</h3>
+            <div class="experience-meta">United States Marine Corps · Jun 2008 - Jun 2014</div>
+            <p>
+              Led training, logistics, operational readiness, personnel movement,
+              equipment accountability, and technical instruction for battalion-level operations.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <div class="contact-copy">
+            <span class="section-tag">Get Started</span>
+            <h2>
+              Ready to grow your <span class="gold">eCommerce brand</span>?
+            </h2>
+
+            <p>
+              Tell us about your business, your current challenges, and where you want to go next.
+              We will reach out to discuss the best path forward.
+            </p>
+
+            <div class="contact-points">
+              <div><strong>Email:</strong> hello@yourdomain.com</div>
+              <div><strong>Services:</strong> Strategy, CRO, Retention, Paid Media, Analytics</div>
+              <div><strong>Ideal for:</strong> Ambitious brands ready to scale with intention</div>
+            </div>
+          </div>
+
+          <form>
+            <div class="field-row">
+              <input type="text" placeholder="Your name" />
+              <input type="email" placeholder="Email address" />
+            </div>
+
+            <div class="field-row">
+              <input type="text" placeholder="Company name" />
+              <input type="text" placeholder="Website" />
+            </div>
+
+            <textarea placeholder="Tell us about your goals"></textarea>
+            <button type="submit" class="btn btn-primary">Book Consultation</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <div>© 2026 Semper Barta Consultancy. All rights reserved.</div>
+      <div>Built for GitHub Pages</div>
     </div>
-  </section>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => navLinks.classList.remove("open"));
+    });
+
+    document.querySelector("form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Connect this form to Formspree, Netlify Forms, or your preferred form tool.");
+    });
+  </script>
 </body>
 </html>
 
