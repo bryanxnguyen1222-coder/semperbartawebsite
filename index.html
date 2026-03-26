@@ -1,540 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Semper Barta Consultancy</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    :root {
-      --bg: #090909;
-      --bg-soft: #111111;
-      --text: #f5f5f5;
-      --muted: #bdbdbd;
-      --gold: #d8b247;
-      --gold-dark: #b58c22;
-      --light: #f7f4ee;
-      --shadow: 0 20px 60px rgba(0,0,0,.35);
-      --max: 1200px;
-      --radius: 20px;
-    }
-
-    * { box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.5;
+      font-family: Arial, sans-serif;
+      background: #0a0a0a;
+      color: white;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
+    /* NAVBAR */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
-    a {
-      color: inherit;
+    .logo {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .nav-links a {
+      margin-left: 20px;
+      color: #ccc;
       text-decoration: none;
     }
 
-    .container {
-      width: min(var(--max), calc(100% - 2rem));
-      margin: 0 auto;
+    /* HERO */
+    .hero {
+      padding: 80px 20px;
     }
 
-    .section {
-      padding: 5rem 0;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem 1.75rem;
-      min-width: 220px;
-      border-radius: 14px;
-      background: linear-gradient(180deg, #e7c862 0%, var(--gold) 100%);
-      color: #111;
-      font-weight: 700;
-      font-size: 1.1rem;
-      transition: transform .2s ease, box-shadow .2s ease;
-      box-shadow: 0 12px 30px rgba(216,178,71,.25);
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 36px rgba(216,178,71,.3);
-    }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(12px);
-      background: rgba(9,9,9,.72);
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-
-    .nav {
+    .hero-container {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
-      padding: 1rem 0;
+      max-width: 1200px;
+      margin: auto;
+      gap: 60px;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: .75rem;
-      font-weight: 700;
-      letter-spacing: .02em;
+    .hero-image img {
+      max-width: 450px;
+      width: 100%;
     }
 
-    .brand-mark {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: rgba(216,178,71,.12);
-      border: 1px solid rgba(216,178,71,.35);
-      color: var(--gold);
-      font-size: 1.15rem;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      color: #ddd;
-      font-size: .98rem;
-    }
-
-    .nav-links a:hover {
-      color: var(--gold);
-    }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      background:
-        radial-gradient(circle at 65% 90%, rgba(216,178,71,.22), transparent 24%),
-        radial-gradient(circle at 50% 110%, rgba(216,178,71,.12), transparent 28%),
-        linear-gradient(180deg, #060606 0%, #0a0a0a 100%);
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.15) 40%, rgba(0,0,0,.08) 100%);
-      pointer-events: none;
-    }
-
-    .hero-grid {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1.05fr 1fr;
-      align-items: center;
-      gap: 2rem;
-      padding: 3rem 0 1rem;
-    }
-
-    .hero-portrait {
-      align-self: end;
-    }
-
-    .hero-portrait img {
-      max-height: 780px;
-      width: auto;
-      object-fit: contain;
-      margin-inline: auto;
-      filter: drop-shadow(0 30px 60px rgba(0,0,0,.45));
+    .hero-text {
+      max-width: 600px;
     }
 
     .eyebrow {
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: .16em;
-      font-size: .85rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
+      color: #d4af37;
+      letter-spacing: 2px;
+      font-size: 14px;
+      margin-bottom: 10px;
     }
 
-    .hero h1,
-    .services-copy h2,
-    .cta h2 {
-      font-family: 'Playfair Display', serif;
-      line-height: .96;
+    .hero-text h1 {
+      font-size: 64px;
+      line-height: 1.1;
       margin: 0;
-      letter-spacing: -.03em;
-    }
-
-    .hero h1 {
-      font-size: clamp(3rem, 7vw, 5.9rem);
-      max-width: 9ch;
     }
 
     .gold {
-      color: var(--gold);
+      color: #d4af37;
     }
 
-    .hero p {
-      max-width: 620px;
-      font-size: clamp(1rem, 2vw, 1.4rem);
-      color: #d2d2d2;
-      margin: 1.5rem 0 2rem;
+    .subtext {
+      color: #ccc;
+      margin: 20px 0;
+      font-size: 18px;
+      line-height: 1.6;
     }
 
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-bottom: 2.5rem;
+    .btn {
+      background: #d4af37;
+      color: black;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
     }
 
-    .hero-meta {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .pill {
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.1);
-      color: #e7e7e7;
-      border-radius: 999px;
-      padding: .8rem 1rem;
-      font-size: .95rem;
-    }
-
-    .services {
-      background: #f5f3ef;
-      color: #161616;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: minmax(280px, 420px) 1fr;
-      gap: 3rem;
-      align-items: stretch;
-    }
-
-    .services-portrait {
-      position: relative;
-      min-height: 100%;
-      border-radius: 24px;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 50% 90%, rgba(216,178,71,.4), transparent 20%),
-        #050505;
-      box-shadow: var(--shadow);
-    }
-
-    .services-portrait img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-    }
-
-    .services-copy .eyebrow {
-      text-transform: none;
-      letter-spacing: normal;
-      font-size: 1rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .services-copy h2 {
-      font-size: clamp(2.4rem, 5vw, 4.6rem);
-      color: #131313;
-      max-width: 11ch;
-      margin-bottom: 1.5rem;
-    }
-
-    .services-copy p.lead {
-      font-size: 1.18rem;
-      color: #444;
-      max-width: 880px;
-      margin-bottom: 1rem;
-    }
-
-    .service-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.25rem 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .service-card {
-      background: white;
-      border: 1px solid rgba(0,0,0,.08);
-      border-radius: 18px;
-      padding: 1.35rem;
-      box-shadow: 0 8px 24px rgba(0,0,0,.05);
-    }
-
-    .service-card h3 {
-      margin: 0 0 .5rem;
-      font-size: 1.25rem;
-    }
-
-    .service-card p {
-      margin: 0;
-      color: #555;
-      font-size: .98rem;
-    }
-
-    .icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      margin-bottom: .9rem;
-      color: var(--gold-dark);
-      background: rgba(216,178,71,.14);
-      font-size: 1.3rem;
-      font-weight: 700;
-    }
-
-    .cta {
-      background: linear-gradient(180deg, #0b0b0b 0%, #050505 100%);
-      text-align: center;
-    }
-
-    .cta-wrap {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 3rem;
-      border-radius: 28px;
-      border: 1px solid rgba(216,178,71,.18);
-      background: radial-gradient(circle at top, rgba(216,178,71,.1), transparent 55%), rgba(255,255,255,.02);
-      box-shadow: var(--shadow);
-    }
-
-    .cta h2 {
-      font-size: clamp(2.2rem, 5vw, 4rem);
-      margin-bottom: 1rem;
-    }
-
-    .cta p {
-      color: #cfcfcf;
-      max-width: 700px;
-      margin: 0 auto 1.75rem;
-      font-size: 1.05rem;
-    }
-
-    .footer {
-      padding: 2rem 0 3rem;
-      background: #050505;
-      border-top: 1px solid rgba(255,255,255,.08);
-    }
-
-    .footer-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      color: #b8b8b8;
-      font-size: .95rem;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 980px) {
-      .hero {
-        min-height: auto;
-        padding-top: 2rem;
-      }
-
-      .hero-grid,
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-copy {
-        order: 1;
+    /* MOBILE */
+    @media (max-width: 900px) {
+      .hero-container {
+        flex-direction: column;
         text-align: center;
       }
 
-      .hero p,
-      .hero h1 {
-        margin-left: auto;
-        margin-right: auto;
+      .hero-text h1 {
+        font-size: 42px;
       }
 
-      .hero-actions,
-      .hero-meta {
-        justify-content: center;
-      }
-
-      .hero-portrait {
-        order: 2;
-      }
-
-      .hero-portrait img {
-        max-height: 560px;
-      }
-
-      .services-portrait {
-        max-width: 520px;
-        margin: 0 auto;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .nav-links {
-        display: none;
-      }
-
-      .section {
-        padding: 4rem 0;
-      }
-
-      .service-list {
-        grid-template-columns: 1fr;
-      }
-
-      .cta-wrap {
-        padding: 2rem 1.25rem;
-      }
-
-      .btn {
-        width: 100%;
+      .hero-image img {
+        max-width: 300px;
       }
     }
   </style>
 </head>
+
 <body>
-  <header class="topbar">
-    <div class="container nav">
-      <a class="brand" href="#home">
-        <span class="brand-mark">S</span>
-        <span>Semper Barta Consultancy</span>
-      </a>
-      <nav class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
+
+  <!-- NAVBAR -->
+  <div class="nav">
+    <div class="logo">Semper Barta Consultancy</div>
+    <div class="nav-links">
+      <a href="#">Services</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
     </div>
-  </header>
+  </div>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="container hero-grid">
-        <div class="hero-portrait">
-          <img src="matt%201.png" alt="Semper Barta Consultancy founder" />
-        </div>
-        <div class="hero-copy">
-          <div class="eyebrow">Proven Growth Strategy</div>
-          <h1>Proven <span class="gold">eCommerce</span> Consulting</h1>
-          <p>
-            Take your online business to the next level with expert strategy, retention planning,
-            and growth systems built to increase revenue and long term performance.
-          </p>
-          <div class="hero-actions">
-            <a class="btn" href="#contact">Book Consultation</a>
-          </div>
-          <div class="hero-meta">
-            <span class="pill">eCommerce Strategy</span>
-            <span class="pill">Retention & Subscriptions</span>
-            <span class="pill">Paid Growth</span>
-          </div>
-        </div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-container">
+
+      <!-- LEFT IMAGE -->
+      <div class="hero-image">
+        <img src="hero.png" alt="Consultant">
       </div>
-    </section>
 
-    <section class="services section" id="services">
-      <div class="container services-grid">
-        <div class="services-portrait">
-          <img src="matt%202.png" alt="Consultant portrait" />
-        </div>
-        <div class="services-copy">
-          <div class="eyebrow">Our Services</div>
-          <h2>Strategic <span class="gold">eCommerce Growth</span>, Built to Perform</h2>
-          <p class="lead">
-            At Semper Barta Consultancy, we help businesses grow through sharp execution, clear strategy,
-            and practical systems that drive measurable results.
-          </p>
-          <p class="lead" id="about">
-            Whether you need stronger acquisition, better conversion, smarter retention, or cleaner analytics,
-            we build tailored solutions around your business goals so growth is not just faster, but more sustainable.
-          </p>
+      <!-- RIGHT TEXT -->
+      <div class="hero-text">
+        <p class="eyebrow">PROVEN GROWTH STRATEGY</p>
 
-          <div class="service-list">
-            <article class="service-card">
-              <div class="icon">◎</div>
-              <h3>eCommerce Strategy</h3>
-              <p>Clear, data driven plans to improve performance, unlock growth, and scale with confidence.</p>
-            </article>
+        <h1>
+          Proven <span class="gold">eCommerce</span><br>
+          Consulting
+        </h1>
 
-            <article class="service-card">
-              <div class="icon">↗</div>
-              <h3>Conversion Optimization</h3>
-              <p>Improve funnels, product pages, and customer journeys to turn more visitors into buyers.</p>
-            </article>
+        <p class="subtext">
+          Take your online business to the next level with expert strategy,
+          retention planning, and growth systems built to increase revenue
+          and long term performance.
+        </p>
 
-            <article class="service-card">
-              <div class="icon">◉</div>
-              <h3>Paid Advertising</h3>
-              <p>Launch and refine campaigns across Meta, Google, and other channels with a focus on profitability.</p>
-            </article>
-
-            <article class="service-card">
-              <div class="icon">✉</div>
-              <h3>Email & SMS Marketing</h3>
-              <p>Build retention flows and lifecycle campaigns that keep customers engaged and coming back.</p>
-            </article>
-
-            <article class="service-card">
-              <div class="icon">▣</div>
-              <h3>Subscription & Retention</h3>
-              <p>Strengthen customer lifetime value with better subscription experiences and churn reduction strategy.</p>
-            </article>
-
-            <article class="service-card">
-              <div class="icon">▤</div>
-              <h3>Analytics & Insights</h3>
-              <p>Get clearer visibility into what is working so you can make faster, smarter business decisions.</p>
-            </article>
-          </div>
-        </div>
+        <a href="#" class="btn">Book Consultation</a>
       </div>
-    </section>
 
-    <section class="cta section" id="contact">
-      <div class="container">
-        <div class="cta-wrap">
-          <div class="eyebrow">Let’s Work Together</div>
-          <h2>Build a stronger eCommerce growth engine</h2>
-          <p>
-            Ready to improve performance, retention, and revenue? Let’s talk about where your brand is today
-            and what it will take to move it forward.
-          </p>
-          <a class="btn" href="mailto:hello@semperbarta.com">Work With Us</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-row">
-      <span>© 2026 Semper Barta Consultancy. All rights reserved.</span>
-      <span>Built for GitHub Pages</span>
     </div>
-  </footer>
+  </section>
+
 </body>
 </html>
