@@ -457,9 +457,11 @@
 
     .about-grid {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
+      grid-template-columns: 1fr;
       gap: 38px;
       align-items: center;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     .about-panel {
@@ -712,7 +714,7 @@
   <header>
     <div class="container nav">
       <a href="#top" class="brand">
-        <img src="semper logo.png" class="logo">
+        <img src="semper logo.png" alt="Semper Barta Consultancy logo" style="height: 58px; width: auto; display: block;" />
       </a>
 
       <nav class="nav-links" id="navLinks">
@@ -953,10 +955,7 @@
           </div>
         </div>
 
-        <div class="about-quote">
-          <p>"I help brands bridge strategy, marketing, technology, and operations so growth is not just faster, but more scalable, efficient, and profitable."</p>
-          <span>Semper Barta Consultancy</span>
-        </div>
+        
       </div>
     </section>
 
@@ -1019,46 +1018,4 @@
   </script>
 </body>
 </html>
-.services-content {
-  text-align: center;
-  margin: 0 auto;
-}
 
-.services-content h2 {
-  text-align: center;
-}
-
-.services-intro,
-.services-subtext {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-🔥 Replace your .about-quote CSS with this:
-.about-quote {
-  position: relative;
-  border-radius: 28px;
-  overflow: hidden;
-  min-height: 100%;
-  display: flex;
-  align-items: center;
-  padding: 50px;
-  background: url("blue suit.png") center / cover no-repeat;
-}
-
-/* dark overlay for readability */
-.about-quote::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(0,0,0,0.2),
-    rgba(0,0,0,0.75)
-  );
-  z-index: 0;
-}
-.logo {
-  height: 90px;
-  width: auto;
-}
