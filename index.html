@@ -706,7 +706,7 @@
   <header>
     <div class="container nav">
       <a href="#top" class="brand">
-        <img src="semper logo.png" alt="Semper Barta Consultancy logo" style="height: 58px; width: auto; display: block;" />
+        <img src="semper logo.png" alt="Semper Barta Consultancy logo" class="logo" />
       </a>
 
       <nav class="nav-links" id="navLinks">
@@ -1012,4 +1012,9 @@
   </script>
 </body>
 </html>
-
+.logo {
+  height: 110px;   /* increase this until you like it */
+  width: auto;
+  display: block;
+  transform: translateY(12px); /* pushes it down so it overflows nicely */
+}
