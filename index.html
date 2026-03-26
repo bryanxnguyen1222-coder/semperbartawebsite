@@ -302,33 +302,14 @@
 
     .services-grid {
       display: grid;
-      grid-template-columns: 0.84fr 1.16fr;
-      gap: 56px;
+      grid-template-columns: 1fr;
+      gap: 40px;
       align-items: stretch;
+      max-width: 980px;
+      margin: 0 auto;
     }
 
-    .services-photo {
-      position: relative;
-      min-height: 840px;
-      border-radius: 30px;
-      overflow: hidden;
-      box-shadow: 0 28px 60px rgba(0,0,0,0.16);
-    }
-
-    .services-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-    }
-
-    .services-photo::after {
-      content: "";
-      position: absolute;
-      inset: auto 0 0 0;
-      height: 180px;
-      background: linear-gradient(to top, rgba(215,178,71,0.12), transparent);
-    }
+    
 
     .services-content {
       padding: 10px 0;
@@ -794,10 +775,11 @@
           <h3>Growth</h3>
           <p>Practical strategies focused on revenue, retention, and customer lifetime value.</p>
         </div>
-       <div class="about-quote">
-  <p>"Plan. Execute. Win."</p>
-  <span>Semper Barta Consultancy</span>
-</div>
+        <div class="stat-card">
+          <h3>CRO</h3>
+          <p>Sharper landing pages, stronger offers, and more efficient customer journeys.</p>
+        </div>
+        <div class="stat-card">
           <h3>Retention</h3>
           <p>Email, SMS, and subscription systems that keep customers engaged longer.</p>
         </div>
@@ -815,7 +797,8 @@
           <h2>Strategic <span class="gold">eCommerce Growth</span>, Built to Perform</h2>
           <p class="services-intro">At Semper Barta Consultancy, we help businesses grow in the digital world through hands-on strategy, smart execution, and performance-focused marketing.</p>
           <p class="services-subtext">Whether your goal is stronger conversion, better customer retention, or scalable acquisition, we build tailored systems that create measurable business growth.</p>
-    <div class="service-list">
+
+          <div class="service-list">
             <article class="service-card">
               <div class="service-top">
                 <div class="service-icon" aria-hidden="true">
