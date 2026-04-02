@@ -8,7 +8,9 @@
   <style>
     :root {
       --bg: #050505;
-      --panel: #0d0d0d;
+      --bg-soft: #0b0b0b;
+      --panel: rgba(255,255,255,0.04);
+      --panel-light: rgba(255,255,255,0.06);
       --panel-2: #f5f1e8;
       --text: #f8f8f8;
       --muted: #c9c9c9;
@@ -23,6 +25,7 @@
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -44,14 +47,14 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      min-height: 58px;
+      min-height: 56px;
       padding: 0 28px;
       border-radius: 16px;
       border: none;
       cursor: pointer;
       font-size: 1rem;
       font-weight: 700;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
     }
 
     .btn:hover {
@@ -72,9 +75,10 @@
 
     .section-tag {
       color: var(--gold);
-      font-size: 0.98rem;
-      font-weight: 600;
-      letter-spacing: 0.03em;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       margin-bottom: 14px;
       display: inline-block;
     }
@@ -87,47 +91,37 @@
       top: 0;
       z-index: 50;
       backdrop-filter: blur(16px);
-      background: rgba(5,5,5,0.76);
+      background: rgba(5,5,5,0.72);
       border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
-   .nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 8px 0;
-}
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 8px 0;
+    }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 14px;
-      font-weight: 800;
-      font-size: 1.05rem;
-      letter-spacing: 0.02em;
+      flex-shrink: 0;
     }
 
-    .brand-mark {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, rgba(215,178,71,0.2), rgba(215,178,71,0.5));
-      border: 1px solid rgba(215,178,71,0.45);
-      display: grid;
-      place-items: center;
-      color: var(--gold-soft);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
+    .logo {
+      height: 84px;
+      width: auto;
+      display: block;
     }
-
-    .brand-mark svg { width: 22px; height: 22px; }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 34px;
       color: #e7e7e7;
-      font-size: 0.97rem;
+      font-size: 1rem;
+      font-weight: 500;
     }
 
     .nav-links a {
@@ -135,7 +129,10 @@
       transition: opacity 0.2s ease, color 0.2s ease;
     }
 
-    .nav-links a:hover { opacity: 1; color: var(--gold-soft); }
+    .nav-links a:hover {
+      opacity: 1;
+      color: var(--gold-soft);
+    }
 
     .menu-btn {
       display: none;
@@ -147,23 +144,24 @@
       color: white;
       cursor: pointer;
     }
+
     .hero {
       position: relative;
       overflow: hidden;
       background:
-        radial-gradient(circle at 70% 75%, rgba(215,178,71,0.22), transparent 26%),
-        radial-gradient(circle at 70% 90%, rgba(215,178,71,0.14), transparent 24%),
-        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0) 30%),
+        radial-gradient(circle at 68% 72%, rgba(215,178,71,0.22), transparent 24%),
+        radial-gradient(circle at 70% 88%, rgba(215,178,71,0.12), transparent 22%),
+        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0) 28%),
         #040404;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 0.94fr 1.06fr;
+      grid-template-columns: 0.92fr 1.08fr;
       align-items: end;
       gap: 40px;
-      min-height: calc(100vh - 82px);
-      padding: 40px 0 0;
+      min-height: calc(100vh - 100px);
+      padding: 20px 0 0;
     }
 
     .hero-image-wrap {
@@ -177,21 +175,21 @@
       content: "";
       position: absolute;
       inset: auto 0 0 0;
-      height: 200px;
-      background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+      height: 220px;
+      background: linear-gradient(to top, rgba(0,0,0,0.55), transparent);
       pointer-events: none;
     }
 
     .hero-image {
-      max-height: 92vh;
+      max-height: 90vh;
       width: auto;
       object-fit: contain;
       object-position: bottom left;
-      filter: drop-shadow(0 35px 60px rgba(0,0,0,0.4));
+      filter: drop-shadow(0 35px 60px rgba(0,0,0,0.45));
     }
 
     .hero-copy {
-      padding: 40px 0 90px;
+      padding: 30px 0 100px;
       position: relative;
       z-index: 1;
     }
@@ -199,39 +197,39 @@
     .hero-icons {
       display: flex;
       justify-content: flex-end;
-      gap: 20px;
-      margin-bottom: 18px;
+      gap: 18px;
+      margin-bottom: 20px;
       color: var(--gold);
     }
 
     .hero-icon {
-      width: 64px;
-      height: 64px;
+      width: 62px;
+      height: 62px;
       border-radius: 50%;
-      border: 1px solid rgba(215,178,71,0.4);
+      border: 1px solid rgba(215,178,71,0.35);
       display: grid;
       place-items: center;
-      background: rgba(255,255,255,0.01);
+      background: rgba(255,255,255,0.015);
     }
 
     .hero-icon svg {
-      width: 30px;
-      height: 30px;
+      width: 28px;
+      height: 28px;
       stroke: currentColor;
     }
 
     .hero h1 {
       margin: 0;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(3rem, 6vw, 5.7rem);
-      line-height: 0.98;
-      letter-spacing: -0.03em;
+      font-size: clamp(3rem, 6vw, 5.6rem);
+      line-height: 0.96;
+      letter-spacing: -0.04em;
     }
 
     .hero p {
       max-width: 650px;
-      margin: 28px 0 34px;
-      font-size: clamp(1.1rem, 2vw, 1.6rem);
+      margin: 26px 0 34px;
+      font-size: clamp(1.08rem, 2vw, 1.5rem);
       color: #d7d7d7;
     }
 
@@ -239,17 +237,11 @@
       display: flex;
       flex-wrap: wrap;
       gap: 16px;
-      margin-bottom: 50px;
+      margin-bottom: 54px;
     }
 
-    
-
-    
-
-    
-
     .stats {
-      margin-top: -38px;
+      margin-top: -34px;
       position: relative;
       z-index: 2;
     }
@@ -263,8 +255,8 @@
     .stat-card {
       background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 20px;
-      padding: 24px;
+      border-radius: 22px;
+      padding: 26px;
       backdrop-filter: blur(10px);
     }
 
@@ -283,7 +275,7 @@
     .services {
       background: var(--panel-2);
       color: var(--dark-text);
-      padding: 110px 0;
+      padding: 120px 0;
       position: relative;
       overflow: hidden;
     }
@@ -308,8 +300,6 @@
       margin: 0 auto;
     }
 
-    
-
     .services-content {
       padding: 10px 0;
     }
@@ -323,14 +313,14 @@
     }
 
     .services-intro {
-      font-size: 1.22rem;
+      font-size: 1.18rem;
       color: #4f4b42;
       max-width: 760px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .services-subtext {
-      font-size: 1.12rem;
+      font-size: 1.08rem;
       color: #575247;
       max-width: 760px;
       margin-bottom: 42px;
@@ -343,10 +333,10 @@
     }
 
     .service-card {
-      background: rgba(255,255,255,0.66);
+      background: rgba(255,255,255,0.72);
       border: 1px solid rgba(18,18,18,0.08);
-      border-radius: 22px;
-      padding: 22px;
+      border-radius: 24px;
+      padding: 24px;
       box-shadow: 0 14px 28px rgba(0,0,0,0.06);
     }
 
@@ -376,7 +366,7 @@
 
     .service-card h3 {
       margin: 0;
-      font-size: 1.4rem;
+      font-size: 1.36rem;
       line-height: 1.15;
     }
 
@@ -394,13 +384,13 @@
     }
 
     .process {
-      padding: 110px 0;
+      padding: 120px 0;
       background: linear-gradient(180deg, #070707, #0b0b0b);
     }
 
     .section-head {
       max-width: 760px;
-      margin-bottom: 44px;
+      margin-bottom: 46px;
     }
 
     .section-head h2 {
@@ -414,7 +404,7 @@
     .section-head p {
       margin: 0;
       color: #c9c9c9;
-      font-size: 1.1rem;
+      font-size: 1.08rem;
     }
 
     .process-grid {
@@ -426,7 +416,7 @@
     .process-card {
       background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 22px;
+      border-radius: 24px;
       padding: 28px;
       min-height: 250px;
     }
@@ -450,7 +440,7 @@
     }
 
     .about {
-      padding: 110px 0;
+      padding: 120px 0;
       background: #0d0d0d;
     }
 
@@ -465,7 +455,7 @@
       background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 28px;
-      padding: 34px;
+      padding: 36px;
     }
 
     .about-panel p {
@@ -515,7 +505,7 @@
     }
 
     .contact {
-      padding: 110px 0;
+      padding: 120px 0;
       background: radial-gradient(circle at top center, rgba(215,178,71,0.08), transparent 30%), #050505;
     }
 
@@ -526,7 +516,7 @@
       background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 32px;
-      padding: 34px;
+      padding: 36px;
       box-shadow: var(--shadow);
     }
 
@@ -603,7 +593,6 @@
 
     @media (max-width: 1120px) {
       .hero-grid,
-      .services-grid,
       .about-grid,
       .contact-card {
         grid-template-columns: 1fr;
@@ -611,7 +600,7 @@
 
       .hero-grid {
         min-height: auto;
-        padding-top: 20px;
+        padding-top: 10px;
       }
 
       .hero-image-wrap {
@@ -627,14 +616,6 @@
         padding-top: 0;
       }
 
-      .device-showcase {
-        justify-content: flex-start;
-      }
-
-      .services-photo {
-        min-height: 620px;
-      }
-
       .stats-grid,
       .process-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -646,7 +627,7 @@
         display: none;
         position: absolute;
         right: 20px;
-        top: 78px;
+        top: 92px;
         width: min(320px, calc(100% - 40px));
         background: rgba(10,10,10,0.98);
         border: 1px solid rgba(255,255,255,0.08);
@@ -678,47 +659,42 @@
         padding-bottom: 60px;
       }
 
-      .services {
-        padding: 80px 0;
-      }
-
+      .services,
       .process,
       .about,
       .contact {
-        padding: 80px 0;
+        padding: 84px 0;
       }
+
+      .logo { height: 72px; }
     }
 
     @media (max-width: 620px) {
       .container { width: min(var(--max), calc(100% - 24px)); }
       .hero-icons { justify-content: flex-start; }
       .hero-icon { width: 56px; height: 56px; }
-      .hero-actions, .services-cta { flex-direction: column; align-items: stretch; }
+      .hero-actions,
+      .services-cta { flex-direction: column; align-items: stretch; }
       .btn { width: 100%; }
-      .services-photo { min-height: 480px; }
-      .contact-card, .about-panel, .about-quote, .device-card, .stat-card, .process-card, .service-card { padding: 22px; }
+      .contact-card,
+      .about-panel,
+      .about-quote,
+      .stat-card,
+      .process-card,
+      .service-card { padding: 22px; }
       .footer-row { flex-direction: column; align-items: flex-start; }
-  .logo {
-  height: 60px;
-  width: auto;
-  display: block;
-}
-
-.nav {
-  min-height: 68px;
-}
-
-.brand {
-  flex-shrink: 0;
-}
+      .logo { height: 58px; }
+      .nav { padding: 6px 0; }
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="container nav">
-     <a href="#top" class="brand">
-  <img src="main logo barta.png" alt="Semper Barta Consultancy logo" class="logo" />
-</a>
+      <a href="#top" class="brand">
+        <img src="main logo barta.png" alt="Semper Barta Consultancy logo" class="logo" />
+      </a>
+
       <nav class="nav-links" id="navLinks">
         <a href="#services">Services</a>
         <a href="#process">Process</a>
@@ -766,8 +742,6 @@
           <div class="hero-actions">
             <a href="#contact" class="btn btn-primary">Book Consultation</a>
             <a href="#services" class="btn btn-secondary">Explore Services</a>
-          </div>
-
           </div>
         </div>
       </div>
@@ -962,8 +936,6 @@
         </div>
       </div>
     </section>
-
-    
 
     <section class="contact" id="contact">
       <div class="container">
